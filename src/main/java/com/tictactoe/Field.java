@@ -53,10 +53,19 @@ public class Field {
 
         for (List<Integer> winPossibility : winPossibilities) {
             if (field.get(winPossibility.get(0)) == field.get(winPossibility.get(1))
+                    && field.get(winPossibility.get(0)) == field.get(winPossibility.get(2))
+                    && field.get(winPossibility.get(0)) != Sign.EMPTY) {
+                return field.get(winPossibility.get(0));
+            }
+        }
+
+        for (List<Integer> winPossibility : winPossibilities) {
+            if (field.get(winPossibility.get(0)) == field.get(winPossibility.get(1))
                 && field.get(winPossibility.get(0)) == field.get(winPossibility.get(2))) {
                 return field.get(winPossibility.get(0));
             }
         }
         return Sign.EMPTY;
     }
+
 }
